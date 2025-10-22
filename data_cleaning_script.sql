@@ -1,0 +1,88 @@
+SELECT COUNT(ID)
+FROM `banking`.`card`;
+
+DESCRIBE banking.card;
+
+-- DUPLICATE DATA
+
+CREATE TABLE banking.card_1
+LIKE banking.card;
+
+INSERT banking.card_1
+SELECT *
+FROM banking.card;
+
+SELECT COUNT(ID)
+FROM `banking`.`card_1`;
+
+-- REMOVE DUPLICATES
+
+SELECT *, ROW_NUMBER() OVER(
+PARTITION BY LIMIT_BAL, SEX, EDUCATION, MARRIAGE, AGE,
+ PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6,
+ BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6,
+ PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6, `default.payment.next.month`) AS row_num
+FROM banking.card_1;
+
+
+WITH duplicate_rows AS (
+SELECT *, ROW_NUMBER() OVER(
+PARTITION BY LIMIT_BAL, SEX, EDUCATION, MARRIAGE, AGE,
+ PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6,
+ BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6,
+ PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6, `default.payment.next.month`) AS row_num
+FROM banking.card_1
+)
+DELETE FROM duplicate_rows
+WHERE row_num > 1;
+
+CREATE TABLE banking.card_2
+LIKE banking.card_1;
+
+ALTER TABLE banking.card_2
+ADD COLUMN row_num INT;
+
+INSERT INTO banking.card_2
+SELECT *, ROW_NUMBER() OVER(
+PARTITION BY LIMIT_BAL, SEX, EDUCATION, MARRIAGE, AGE,
+ PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6,
+ BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6,
+ PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6, `default.payment.next.month`) AS row_num
+FROM banking.card_1;
+
+SELECT *
+FROM banking.card_2;
+
+DELETE
+FROM banking.card_2
+WHERE row_num > 1;
+
+SELECT *
+FROM banking.card_2
+WHERE row_num > 1;
+
+-- COLUMN NAMES
+ALTER TABLE banking.card_2
+CHANGE COLUMN `default.payment.next.month` DEFAULT_STATUS INT;
+
+-- DELETE UNNECESSARY COLUMNS
+
+ALTER TABLE banking.card_2
+DROP COLUMN row_num;
+
+-- STANDARIZATION OF ILLOGICAL VALUES / COLUMNS
+
+SELECT * FROM banking.card_2 WHERE EDUCATION > 4;
+UPDATE banking.card_2 SET EDUCATION = 4 WHERE EDUCATION = 5 OR EDUCATION = 6;
+
+SELECT distinct(LIMIT_BAL) FROM banking.card_2;
+
+SELECT distinct(AGE) FROM banking.card_2;
+
+SELECT distinct(PAY_0) FROM banking.card_2;
+
+ALTER TABLE banking.card_2
+CHANGE COLUMN PAY_0 PAY_1 INT;
+
+
+
