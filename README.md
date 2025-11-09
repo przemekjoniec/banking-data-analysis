@@ -1,3 +1,9 @@
+Świetnie, dziękuję za te wyjaśnienia! Teraz mogę uzupełnić sekcję **"Data & File Structure"** w Twoim `README.md`.
+
+Oto zaktualizowany plik `README.md` z dodaną sekcją:
+
+---
+
 # Credit Risk Assessment & Strategic Recommendations
 
 ## 📌 Project Overview
@@ -9,10 +15,18 @@ The core output is a set of **Strategic Recommendations** for optimizing collect
 
 ---
 
-## 📂 Data Source
+## 📂 Data & File Structure
 
-* **Source Data:** Real-world anonymized credit client data, including demographics, credit limit, billing statements, and detailed payment history.
-* **Data Fields:** Key fields analyzed include `LIMIT_BAL`, `AGE`, `EDUCATION`, and a set of six historical payment status columns (`PAY_X`).
+This repository contains all the necessary files to understand and replicate the project:
+
+* **`UCI_Credit_Card.csv`**: The **raw, original dataset** used for the analysis, sourced from the UCI Machine Learning Repository.
+* **`Banking.xlsx`**: An Excel file containing the **cleaned and pre-processed data**. This file is ready for direct use in analytical tools after initial data preparation.
+* **`data_cleaning_script.sql`**: The SQL script used for **initial data cleaning, transformation, and feature engineering** steps applied to the raw dataset.
+* **`Dashboard.pbix`**: The **Power BI Desktop file** containing the interactive analytical dashboard, including all data models, DAX measures, and visualizations.
+* **`Credit_Risk_Report_Document_PL.docx`**: The **full analytical report in Polish**, detailing the methodology, findings, and strategic business recommendations.
+* **`Credit_Risk_Report_Document_EN.docx`**: The **full analytical report in English**, detailing the methodology, findings, and strategic business recommendations.
+* **`Page 1.png`, `Page 2.png`, `Page 3.png`**: Screenshots or exports of key dashboard pages for quick preview.
+* **`README.md`**: This file, providing an overview of the project.
 
 ---
 
@@ -56,6 +70,7 @@ An interactive dashboard was built in **Power BI** to visualize the strategic ri
 * **Power BI** – Data modeling, advanced DAX (for Default Rate calculations and risk metrics), and dashboard creation.
 * **DAX** – Crucial for creating key performance metrics and complex conditional risk classifications.
 * **Excel/Power Query** – Data cleaning, feature engineering, and standardization of categorical variables.
+* **SQL** – For initial data cleaning and transformation processes.
 
 ---
 
@@ -68,4 +83,3 @@ The project successfully transformed raw data into actionable risk mitigation st
 * **Policy Modification:** Recommended introducing **stricter lending criteria** for segments identified with high proportional risk, such as *Young Adult* and clients with *Lower Education*.
 
 ---
-
