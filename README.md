@@ -68,4 +68,10 @@ The project successfully transformed raw data into actionable risk mitigation st
 * **Policy Modification:** Recommended introducing **stricter lending criteria** for segments identified with high proportional risk, such as *Young Adult* and clients with *Lower Education*.
 
 ---
+<img width="1278" height="717" alt="Page 1" src="https://github.com/user-attachments/assets/5782f86f-805e-4ee4-bc36-4685c84ae663" />
 
+<img width="1280" height="716" alt="Page 2" src="https://github.com/user-attachments/assets/0cc98bae-a35d-4ae1-bb81-b188d96fb982" />
+
+<img width="1276" height="720" alt="Page 3" src="https://github.com/user-attachments/assets/3457a75b-b86b-4e0a-bbab-6f69ff610798" />
+
+[Credit_Risk_Report_Document_EN.docx](https://github.com/user-attachments/files/23442640/Credit_Risk_Report_Document_EN.docx)
