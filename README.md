@@ -1,7 +1,3 @@
-Świetnie, dziękuję za te wyjaśnienia! Teraz mogę uzupełnić sekcję **"Data & File Structure"** w Twoim `README.md`.
-
-Oto zaktualizowany plik `README.md` z dodaną sekcją:
-
 ---
 
 # Credit Risk Assessment & Strategic Recommendations
