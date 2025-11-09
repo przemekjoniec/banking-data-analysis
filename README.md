@@ -74,4 +74,3 @@ The project successfully transformed raw data into actionable risk mitigation st
 
 <img width="1276" height="720" alt="Page 3" src="https://github.com/user-attachments/assets/3457a75b-b86b-4e0a-bbab-6f69ff610798" />
 
-[Credit_Risk_Report_Document_EN.docx](https://github.com/user-attachments/files/23442640/Credit_Risk_Report_Document_EN.docx)
